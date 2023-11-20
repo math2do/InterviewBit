@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
  
 using namespace std;
- 
+
 #ifdef LOCAL
 #include "lib/debug.h"
 #else
