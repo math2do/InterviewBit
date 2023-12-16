@@ -29,6 +29,41 @@ Find the peak point, =pivot=, from the *bitonic* array using binary search. Whil
 Once =pivot= point is found, then look for the element in left and right of =pivot= using binary search functions like ~upper_bound~ or ~lower_bound~
 
 #+begin_src cpp
-  
+  int pivotPoint(vector <int> &a) {
+    int n = (int) a.size();
+    int l = 0, h = n - 1;
+    while (h - l > 1) {
+      int m = (l + h) / 2;
+      if (m - 1 >= l && a[m - 1] < a[m]) {
+        l = m;
+      } else {
+        h = m;
+      }
+    }
+    if (a[l] > a[h]) return l;
+    return h;
+  }
+
+  int Solution::solve(vector<int> &a, int k) {
+    int p = pivotPoint(a);
+
+    auto it = lower_bound(a.begin(), a.begin() + p + 1, k);
+    if (it != a.begin() + p + 1) {
+      int at = (int) (it - a.begin());
+      if (a[at] == k) {
+        return at;
+      } 
+    }
+
+    it = lower_bound(a.begin() + p, a.end(), k, greater<int>());  // lower_bound in reverse sorted array
+    if (it != a.end()) {
+      int at = (int) (it - a.begin());
+      if (a[at] == k) {
+        return at;
+      } 
+    }
+
+    return -1;
+  }
 #+end_src
 
