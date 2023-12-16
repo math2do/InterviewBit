@@ -1,0 +1,30 @@
+#+title: [[https://www.interviewbit.com/courses/programming/binary-search#:~:text=0/2-,Examples,-Count%20Element%20Occurence][Examples]]
+#+author: Mathura Tudu
+#+date: <2023-12-16 Wed>
+#+property: header-args:cpp :tangle ./sol.h :sol no
+
+
+* [[https://www.interviewbit.com/problems/count-element-occurence/][Count Element Occurence]]
+
+Use ~lower_bound~ to find the first occurence and ~upper_bound~ to find the end occurence of element B. The difference between these iterators returned by these two functions is the answer. If the element B doesn't exist, then same iterator will be returned by both ~upper_bound~ and ~lower_bound~. 
+
+#+begin_src cpp
+  int Solution::findCount(const vector<int> &A, int B) {
+    auto upper = upper_bound(A.begin(), A.end(), B);
+    auto lower = lower_bound(A.begin(), A.end(), B);
+
+    return (int) (upper - lower);
+  }
+#+end_src
+
+
+* [[https://www.interviewbit.com/problems/search-in-bitonic-array/][Search in Bitonic Array!]]
+
+Find the peak point, =pivot=, from the *bitonic* array using binary search. While doing binary search, compare the element in the middle index ~m~ with element in index ~m-1~. This comparision will tell us how to narrow the search space.
+
+Once =pivot= point is found, then look for the element in left and right of =pivot= using binary search functions like ~upper_bound~ or ~lower_bound~
+
+#+begin_src cpp
+  
+#+end_src
+
