@@ -32,16 +32,26 @@ Once =pivot= point is found, then look for the element in left and right of =piv
   int pivotPoint(vector <int> &a) {
     int n = (int) a.size();
     int l = 0, h = n - 1;
-    while (h - l > 1) {
+    while (l <= h) {
       int m = (l + h) / 2;
-      if (m - 1 >= l && a[m - 1] < a[m]) {
-        l = m;
-      } else {
-        h = m;
+
+      // pivot point found
+      if (a[m - 1] < a[m] && a[m] > a[m + 1]) {
+        return m;
       }
+
+      // left side of pivot
+      if (a[m - 1] < a[m] && a[m + 1] > a[m]) {
+        l = m + 1;
+      }
+      // right side of pivot
+      if (a[m - 1] > a[m] && a[m + 1] < a[m]) {
+        h = m - 1;
+      } 
     }
-    if (a[l] > a[h]) return l;
-    return h;
+
+    assert(false);
+    return 0;
   }
 
   int Solution::solve(vector<int> &a, int k) {
