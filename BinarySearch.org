@@ -4,7 +4,7 @@
 #+property: header-args:cpp :tangle ./sol.h :sol no
 
 
-_Examples_
+** [[https://www.interviewbit.com/courses/programming/binary-search#:~:text=1%20/2-,Examples,-Count%20Element%20Occurence][Example]]
 
 [[https://www.interviewbit.com/problems/count-element-occurence/][Count Element Occurence]]
 
@@ -20,6 +20,7 @@ Use ~lower_bound~ to find the first occurence and ~upper_bound~ to find the end 
 #+end_src
 
 
+** [[https://www.interviewbit.com/courses/programming/binary-search#:~:text=Simple%20binary%20search][Simple binary search]]
 
 [[https://www.interviewbit.com/problems/search-in-bitonic-array/][Search in Bitonic Array!]]
 
